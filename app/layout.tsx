@@ -1,5 +1,6 @@
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
+import Header from "@/components/layout/Header";
 
 export default function RootLayout({
   children,
@@ -18,7 +19,11 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="w-full font-bodyFont text-textLight overflow-x-hidden overflow-y-scroll scrollbar scrollbar-track-textDark/20 scrollbar-thumb-textDark/60">
+      <body
+        className="w-full min-h-screen font-bodyFont flex flex-col
+        justify-between  overflow-x-hidden overflow-y-scroll scrollbar scrollbar-track-textDark/20 scrollbar-thumb-textDark/60 gap-10"
+      >
+        <Header />
         {children}
         <Footer />
       </body>
