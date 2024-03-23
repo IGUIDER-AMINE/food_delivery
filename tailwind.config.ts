@@ -32,6 +32,7 @@ module.exports = {
       },
       colors: {
         bgcolor: "#333233",
+        orangeColor: "#FF623E",
         bodyColor: "#0A192F",
         textGreen: "#64ffda",
         textLight: "#ccd6f6",

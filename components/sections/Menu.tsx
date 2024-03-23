@@ -14,7 +14,10 @@ const Menu = () => {
       <div className="flex  justify-between gap-16 text-center overflow-x-auto pb-4 scrollbar-thin scrollbar-track-textDark/20 scrollbar-thumb-textDark/60">
         {menu_list.map((item, index) => {
           return (
-            <div key={index} className="flex flex-col gap-y-2 cursor-pointer">
+            <div
+              key={index}
+              className="flex rounded-xl flex-col gap-y-2 cursor-pointer"
+            >
               <Image
                 className="object-contain min-w-[104px] h-[104px]"
                 src={item?.menu_image}
