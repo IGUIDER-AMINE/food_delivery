@@ -10,12 +10,7 @@ const Footer = () => {
         <div className="grid  md:grid-cols-2 py-10 lg:grid-cols-4 gap-8">
           <div className="md:col-span-2 space-y-6">
             <div>
-              <Image
-                // className="w-full h-full object-contain"
-                src={assets.logo}
-                alt="logo"
-                quality={100}
-              />
+              <Image src={assets.logo} alt="logo" quality={100} />
             </div>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -25,20 +20,10 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <div>
-                <Image
-                  // className="w-full h-full object-contain"
-                  src={assets.facebook_icon}
-                  alt="logo"
-                  quality={100}
-                />
+                <Image src={assets.facebook_icon} alt="logo" quality={100} />
               </div>
               <div>
-                <Image
-                  // className="w-full h-full object-contain"
-                  src={assets.twitter_icon}
-                  alt="logo"
-                  quality={100}
-                />
+                <Image src={assets.twitter_icon} alt="logo" quality={100} />
               </div>
               <div>
                 <Image
