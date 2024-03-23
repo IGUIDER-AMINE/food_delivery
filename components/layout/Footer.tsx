@@ -5,9 +5,9 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <section className="bg-bgcolor">
-      <div className="container mx-auto p-4 text-[#95969E]">
-        <div className="grid md:grid-cols-2  lg:grid-cols-4  gap-8">
+    <section className="bg-bgcolor p-4 md:px-16 text-[#95969E]">
+      <div className="container mx-auto space-y-10">
+        <div className="grid  md:grid-cols-2 py-10 lg:grid-cols-4 gap-8">
           <div className="md:col-span-2 space-y-6">
             <div>
               <Image
@@ -70,6 +70,9 @@ const Footer = () => {
               <Link href="">contact@greatstack.dev</Link>
             </div>
           </div>
+        </div>
+        <div className="md:text-center">
+          Copyright 2024 &copy; Tomato.com - All Right Reserved
         </div>
       </div>
     </section>
