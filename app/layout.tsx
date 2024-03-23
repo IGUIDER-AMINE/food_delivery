@@ -1,3 +1,4 @@
+import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
 export default function RootLayout({
@@ -17,7 +18,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body className="w-full font-bodyFont text-textLight overflow-x-hidden overflow-y-scroll scrollbar scrollbar-track-textDark/20 scrollbar-thumb-textDark/60">
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
