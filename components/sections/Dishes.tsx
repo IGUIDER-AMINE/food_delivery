@@ -13,13 +13,21 @@ const Dishes = () => {
               key={index}
               className="gap-y-2 cursor-pointer shadow-md rounded-2xl"
             >
-              <div>
+              <div className="relative bg-red-500">
                 <Image
                   className="object-cover rounded-t-2xl w-full min-w-[104px] h-[204px]"
                   src={item?.image}
                   alt={item?.name}
                   quality={100}
                 />
+                <button className="absolute bottom-3 right-3">
+                  <Image
+                    className="object-cover rounded-t-2xl w-10"
+                    src={assets.add_icon_white}
+                    alt={item?.name}
+                    quality={100}
+                  />
+                </button>
               </div>
               <div className="p-4 space-y-2">
                 <div className="flex gap-x-2 justify-between">
