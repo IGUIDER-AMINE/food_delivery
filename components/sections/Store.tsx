@@ -4,7 +4,7 @@ import React from "react";
 
 const Store = () => {
   return (
-    <section className="container mx-auto p-4 flex flex-col place-items-center gap-y-10">
+    <section className="flex flex-col place-items-center gap-y-10">
       <h1 className="font-titleFont font-bold text-3xl md:text-4xl sm:text-center leading-snug">
         For Better Expercience Download <br className="hidden md:block" />{" "}
         Tomato App

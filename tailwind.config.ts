@@ -39,6 +39,7 @@ module.exports = {
         hoverColor: "rgba(100,255,218,0.1)",
       },
       backgroundImage: {
+        "header-img": "url('/asstes/images/header_img.png')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
