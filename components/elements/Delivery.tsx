@@ -13,7 +13,7 @@ const Delivery = () => {
               type="text"
               placeholder="First name"
               autoComplete="First-name"
-              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orangeColor sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orangeColor sm:text-sm sm:leading-6"
             />
           </div>
           <div className="grow">
@@ -21,7 +21,7 @@ const Delivery = () => {
               type="text"
               placeholder="Last name"
               autoComplete="Last-name"
-              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orangeColor sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orangeColor sm:text-sm sm:leading-6"
             />
           </div>
         </div>
@@ -30,7 +30,7 @@ const Delivery = () => {
             type="email"
             placeholder="Email address"
             autoComplete="email"
-            className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orangeColor sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orangeColor sm:text-sm sm:leading-6"
           />
         </div>
         <div>
@@ -38,7 +38,7 @@ const Delivery = () => {
             type="text"
             placeholder="Street"
             autoComplete="Street"
-            className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orangeColor sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orangeColor sm:text-sm sm:leading-6"
           />
         </div>
         <div className="flex gap-4">
@@ -47,7 +47,7 @@ const Delivery = () => {
               type="text"
               placeholder="City"
               autoComplete="City"
-              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orangeColor sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orangeColor sm:text-sm sm:leading-6"
             />
           </div>
           <div className="grow">
@@ -55,7 +55,7 @@ const Delivery = () => {
               type="text"
               placeholder="State"
               autoComplete="Country"
-              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orangeColor sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orangeColor sm:text-sm sm:leading-6"
             />
           </div>
         </div>
@@ -65,7 +65,7 @@ const Delivery = () => {
               type="text"
               placeholder="Zip code"
               autoComplete="Zip code"
-              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orangeColor sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orangeColor sm:text-sm sm:leading-6"
             />
           </div>
           <div className="grow">
@@ -73,7 +73,7 @@ const Delivery = () => {
               type="text"
               placeholder="Country"
               autoComplete="Country"
-              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orangeColor sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orangeColor sm:text-sm sm:leading-6"
             />
           </div>
         </div>
@@ -82,7 +82,7 @@ const Delivery = () => {
             type="tel"
             placeholder="Phone"
             autoComplete="Phone"
-            className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orangeColor sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orangeColor sm:text-sm sm:leading-6"
           />
         </div>
       </div>
