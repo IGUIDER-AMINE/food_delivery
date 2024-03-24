@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="space-y-24">
+    <main className="space-y-24 p-4 md:px-16">
       <Banner />
       <Menu />
       <Dishes />

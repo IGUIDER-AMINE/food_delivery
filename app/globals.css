@@ -9,6 +9,9 @@
   .scrollbar::-webkit-scrollbar-thumb {
     border-radius: 100vh;
   }
+  .custom-th {
+    @apply text-start py-4 font-medium;
+  }
 }
 
 /* :root {

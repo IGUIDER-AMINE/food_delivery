@@ -34,7 +34,7 @@ const Header = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.1 }}
           >
-            <Link href="#home">Home</Link>
+            <Link href="/">Home</Link>
           </motion.li>
           <motion.li
             initial={{ y: -10, opacity: 0 }}
@@ -76,12 +76,14 @@ const Header = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.1, delay: 0.5 }}
           >
-            <Image
-              className="cursor-pointer"
-              src={assets.basket_icon}
-              alt="logo"
-              quality={100}
-            />
+            <Link href="/cart">
+              <Image
+                className="cursor-pointer"
+                src={assets.basket_icon}
+                alt="logo"
+                quality={100}
+              />
+            </Link>
           </motion.div>
           <motion.div
             initial={{ y: -10, opacity: 0 }}
@@ -123,7 +125,7 @@ const Header = () => {
               <div className="flex flex-col items-center gap-7 pt-8">
                 <ul className="flex flex-col text-base gap-7">
                   <Link
-                    href="#home"
+                    href="/"
                     className="flex items-center gap-1 font-medium  hover:text-textGreen cursor-pointer duration-300 nav-link"
                   >
                     <motion.li
@@ -190,12 +192,14 @@ const Header = () => {
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.2, delay: 0.6, ease: "easeIn" }}
                   >
-                    <Image
-                      className="cursor-pointer"
-                      src={assets.basket_icon}
-                      alt="logo"
-                      quality={100}
-                    />
+                    <Link href="/cart">
+                      <Image
+                        className="cursor-pointer"
+                        src={assets.basket_icon}
+                        alt="logo"
+                        quality={100}
+                      />
+                    </Link>
                   </motion.li>
                   <motion.li
                     initial={{ y: -10, opacity: 0 }}

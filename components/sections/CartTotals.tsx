@@ -2,8 +2,8 @@ import React from "react";
 
 const CartTotals = () => {
   return (
-    <section className="flex justify-between">
-      <div className="min-w-[500px] space-y-4">
+    <section className="flex flex-col xl:flex-row gap-y-10 justify-between">
+      <div className="md:min-w-[500px] space-y-4">
         <h1 className="font-titleFont font-bold text-3xl">Cart Totals</h1>
         <div className="border-b py-2 flex gap-x-4 justify-between">
           <span>Subtotal</span>
@@ -21,15 +21,15 @@ const CartTotals = () => {
           PROCEED TO CHECKOUT
         </button>
       </div>
-      <div className="text-gray-500 space-y-2 min-w-[400px]">
+      <div className="text-gray-500 space-y-2 md:min-w-[400px]">
         <div>If you have a promo code, Enter it here</div>
-        <div className="w-full flex">
+        <div className="w-full flex flex-col md:flex-row gap-y-4">
           <input
-            className="bg-[#E2E1E2] rounded-l-md  px-6 py-2 grow"
+            className="bg-[#E2E1E2] rounded-md md:rounded-none md:rounded-l-md px-6 py-2 grow"
             type="text"
             placeholder="promo Code"
           />
-          <button className="text-white bg-black px-6 py-2 rounded-r-md">
+          <button className="text-white bg-black px-6 py-2  rounded-md md:rounded-none md:rounded-r-md">
             Submit
           </button>
         </div>
