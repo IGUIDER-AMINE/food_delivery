@@ -1,26 +1,11 @@
+import Link from "next/link";
 import React from "react";
+import Proceed from "../elements/Proceed";
 
 const CartTotals = () => {
   return (
     <section className="flex flex-col xl:flex-row gap-y-10 justify-between">
-      <div className="md:min-w-[500px] space-y-4">
-        <h1 className="font-titleFont font-bold text-3xl">Cart Totals</h1>
-        <div className="border-b py-2 flex gap-x-4 justify-between">
-          <span>Subtotal</span>
-          <span>$60</span>
-        </div>
-        <div className="border-b py-2 flex gap-x-4 justify-between">
-          <span>Delivery Fee</span>
-          <span>$5</span>
-        </div>
-        <div className="font-semibold  py-2 flex gap-x-4 justify-between">
-          <span>Total</span>
-          <span>$65</span>
-        </div>
-        <button className="bg-orangeColor font-titleFont rounded-md text-white py-2 px-6">
-          PROCEED TO CHECKOUT
-        </button>
-      </div>
+      <Proceed link_to="/order" title="PROCEED TO CHECKOUT" />
       <div className="text-gray-500 space-y-2 md:min-w-[400px]">
         <div>If you have a promo code, Enter it here</div>
         <div className="w-full flex flex-col md:flex-row gap-y-4">
