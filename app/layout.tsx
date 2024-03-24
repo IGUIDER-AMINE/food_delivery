@@ -21,7 +21,7 @@ export default function RootLayout({
       </head>
       <body
         className="w-full min-h-screen font-bodyFont flex flex-col
-        justify-between overflow-x-hidden overflow-y-scroll scrollbar scrollbar-thumb-orangeColor/60 gap-10 container mx-auto p-4 md:px-16"
+        justify-between overflow-x-hidden overflow-y-scroll scrollbar scrollbar-thumb-orangeColor/60 gap-10 container mx-auto"
       >
         <Header />
         {children}

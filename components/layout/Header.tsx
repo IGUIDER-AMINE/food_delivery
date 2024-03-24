@@ -10,7 +10,6 @@ import { MdOutlineClose } from "react-icons/md";
 const Header = () => {
   const ref = useRef<string | any>("");
   const [showMenu, setShowMenu] = useState(false);
-  console.log(showMenu);
 
   const handlClick = (e: any) => {
     if (e.target.contains(ref.current)) {
@@ -20,7 +19,7 @@ const Header = () => {
   };
 
   return (
-    <header className="h-14 lg:h-[8vh] sticky top-0 z-50 py-4 pb-12 text-gray-500 bg-white">
+    <header className="h-14 p-4 md:px-16 lg:h-[8vh] sticky top-0 z-50 py-4 pb-12 text-gray-500 bg-white">
       <div className="flex justify-between items-center">
         <motion.div
           initial={{ x: 20, opacity: 0 }}
