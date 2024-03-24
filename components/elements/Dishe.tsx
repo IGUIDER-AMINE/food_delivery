@@ -1,18 +1,34 @@
 "use client";
 
+import { CommandeContext } from "@/context/CommandeProvider";
 import { assets } from "@/public/asstes";
 import Image, { StaticImageData } from "next/image";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 interface typeDishe {
-  image: StaticImageData;
+  _id: string;
   name: string;
-  description: string;
+  image: StaticImageData;
   price: number;
+  description: string;
+  category: string;
 }
 
-const Dishe = ({ image, name, description, price }: typeDishe) => {
+interface propsType {
+  item: typeDishe;
+}
+
+const Dishe = ({ item }: propsType) => {
   const [addDish, setaddDish] = useState(0);
+  const contextValue = useContext(CommandeContext);
+
+  const { name, image, price, description } = item;
+  console.log(name);
+
+  const handleAddDish = () => {
+    setaddDish(addDish + 1);
+    contextValue.setBasketList([...contextValue.basketList, {}]);
+  };
   return (
     <div className="gap-y-2 cursor-pointer shadow-md rounded-2xl">
       <div className="relative">
@@ -22,6 +38,7 @@ const Dishe = ({ image, name, description, price }: typeDishe) => {
           alt={name}
           quality={100}
         />
+        {/* {contextValue.actAppendCondidat} */}
         {addDish !== 0 ? (
           <div className="flex gap-4 items-center absolute bottom-3 bg-white py-1 px-2 rounded-full right-3">
             <Image

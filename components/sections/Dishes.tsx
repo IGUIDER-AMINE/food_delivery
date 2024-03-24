@@ -9,15 +9,7 @@ const Dishes = () => {
       <h1 className="font-titleFont font-bold text-4xl">Top Dishes near you</h1>
       <div className="grid grid-flow-row md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 pb-4 ">
         {food_list.slice(1, 10).map((item, index) => {
-          return (
-            <Dishe
-              key={index}
-              name={item?.name}
-              description={item?.description}
-              price={item?.price}
-              image={item?.image}
-            />
-          );
+          return <Dishe key={index} item={item} />;
         })}
       </div>
     </section>

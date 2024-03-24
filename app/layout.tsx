@@ -1,6 +1,7 @@
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
 import Header from "@/components/layout/Header";
+import { CommandeContextProvider } from "@/context/CommandeProvider";
 
 export default function RootLayout({
   children,
@@ -24,7 +25,7 @@ export default function RootLayout({
         justify-between overflow-x-hidden overflow-y-scroll scrollbar scrollbar-thumb-orangeColor/60 gap-10 container mx-auto"
       >
         <Header />
-        {children}
+        <CommandeContextProvider>{children}</CommandeContextProvider>
         <Footer />
       </body>
     </html>
