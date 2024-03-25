@@ -1,12 +1,13 @@
 "use client";
 
+import { CommandeContext } from "@/context/CommandeProvider";
 import { assets, food_list } from "@/public/asstes";
 import Image from "next/image";
-import React from "react";
+import React, { useContext } from "react";
 
 const ListOrders = () => {
-  const basketList = localStorage.getItem("basketList");
-  console.log(basketList);
+  const contextValue = useContext(CommandeContext);
+  // console.log(contextValue.basketList.length);
   return (
     <section>
       <table className="table-fixed w-full font-medium">
@@ -24,7 +25,7 @@ const ListOrders = () => {
           </tr>
         </thead>
         <tbody>
-          {food_list.slice(1, 3).map((item, index) => {
+          {contextValue?.basketList.map((item: any, index: number) => {
             return (
               <tr key={index} className="border-b">
                 <td className="py-4">
@@ -44,7 +45,7 @@ const ListOrders = () => {
                     </div>
                     <div className="flex justify-between">
                       <span>Qte : </span>
-                      <span>{item?.price}</span>
+                      <span>{item?.quantity}</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Total : </span>
@@ -53,7 +54,7 @@ const ListOrders = () => {
                   </div>
                 </td>
                 <td className="py-4 hidden md:table-cell">${item?.price}</td>
-                <td className="py-4 hidden md:table-cell">{item?.price}</td>
+                <td className="py-4 hidden md:table-cell">{item?.quantity}</td>
                 <td className="py-4 hidden md:table-cell">${item?.price}</td>
                 <td className="py-4 text-center md:text-start">
                   <button>

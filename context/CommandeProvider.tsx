@@ -42,8 +42,8 @@ export const CommandeContextProvider = ({
     } else {
       localStorage.setItem("basketList", JSON.stringify([]));
     }
-    console.log("data");
-    console.log(data);
+    // console.log("data");
+    // console.log(data);
   }, []);
 
   useEffect(() => {

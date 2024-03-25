@@ -19,7 +19,7 @@ const Header = () => {
       setShowMenu(false);
     }
   };
-  console.log(contextValue?.basketList);
+
   return (
     <header className="h-14 p-4 md:px-16 lg:h-[8vh] sticky top-0 z-50 py-4 pb-12 text-gray-500 bg-white">
       <div className="flex justify-between items-center">
