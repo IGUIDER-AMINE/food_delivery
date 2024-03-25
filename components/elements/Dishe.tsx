@@ -41,12 +41,15 @@ const Dishe = ({ item }: propsType) => {
     if (quantity === 1 && itemSelected.length === 0) {
       contextValue.setBasketList([
         ...contextValue.basketList,
-        { ...item, quantity },
+        { ...item, quantity, total: quantity * price },
       ]);
     } else if (quantity === 0) {
       contextValue?.setBasketList([...itemInList]);
     } else {
-      contextValue?.setBasketList([...itemInList, { ...item, quantity }]);
+      contextValue?.setBasketList([
+        ...itemInList,
+        { ...item, quantity, total: quantity * price },
+      ]);
     }
   };
 

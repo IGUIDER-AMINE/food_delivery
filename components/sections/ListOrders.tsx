@@ -4,9 +4,16 @@ import { CommandeContext } from "@/context/CommandeProvider";
 import { assets, food_list } from "@/public/asstes";
 import Image from "next/image";
 import React, { useContext } from "react";
+import Order from "../elements/Order";
 
 const ListOrders = () => {
   const contextValue = useContext(CommandeContext);
+  const removeOrder = (_id: any) => {
+    const itemInList = contextValue?.basketList?.filter(
+      (dish: any) => dish._id !== _id
+    );
+    contextValue.setBasketList(itemInList);
+  };
   // console.log(contextValue.basketList.length);
   return (
     <section>
@@ -27,46 +34,16 @@ const ListOrders = () => {
         <tbody>
           {contextValue?.basketList.map((item: any, index: number) => {
             return (
-              <tr key={index} className="border-b">
-                <td className="py-4">
-                  <Image
-                    src={item?.image}
-                    alt="logo"
-                    quality={100}
-                    className="h-20 w-20"
-                  />
-                </td>
-                <td className="py-4">
-                  {item?.name}
-                  <div className="mt-2 space-y-2 md:hidden">
-                    <div className="flex justify-between">
-                      <span>Price : </span>
-                      <span>${item?.price}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Qte : </span>
-                      <span>{item?.quantity}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Total : </span>
-                      <span>{item?.price}</span>
-                    </div>
-                  </div>
-                </td>
-                <td className="py-4 hidden md:table-cell">${item?.price}</td>
-                <td className="py-4 hidden md:table-cell">{item?.quantity}</td>
-                <td className="py-4 hidden md:table-cell">${item?.price}</td>
-                <td className="py-4 text-center md:text-start">
-                  <button>
-                    <Image
-                      className="h-4 w-4"
-                      src={assets.cross_icon}
-                      alt="logo"
-                      quality={100}
-                    />
-                  </button>
-                </td>
-              </tr>
+              <Order
+                key={index}
+                _id={item?._id}
+                image={item?.image}
+                name={item?.name}
+                quantity={item?.quantity}
+                total={item?.total}
+                price={item?.price}
+                removeOrder={removeOrder}
+              />
             );
           })}
         </tbody>
