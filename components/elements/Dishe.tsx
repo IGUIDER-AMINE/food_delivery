@@ -31,10 +31,10 @@ const Dishe = ({ item }: propsType) => {
   const { _id, name, image, price, description } = item;
 
   const handleAddDish = (quantity: number) => {
-    const itemInList = contextValue.basketList.filter(
+    const itemInList = contextValue?.basketList?.filter(
       (dish: typeDishe) => dish._id !== _id
     );
-    const itemSelected = contextValue.basketList.filter(
+    const itemSelected = contextValue?.basketList?.filter(
       (dish: typeDishe) => dish._id === _id
     );
 
@@ -44,9 +44,9 @@ const Dishe = ({ item }: propsType) => {
         { ...item, quantity },
       ]);
     } else if (quantity === 0) {
-      contextValue.setBasketList([...itemInList]);
+      contextValue?.setBasketList([...itemInList]);
     } else {
-      contextValue.setBasketList([...itemInList, { ...item, quantity }]);
+      contextValue?.setBasketList([...itemInList, { ...item, quantity }]);
     }
   };
 

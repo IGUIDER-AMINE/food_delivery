@@ -1,8 +1,12 @@
+"use client";
+
 import { assets, food_list } from "@/public/asstes";
 import Image from "next/image";
 import React from "react";
 
 const ListOrders = () => {
+  const basketList = localStorage.getItem("basketList");
+  console.log(basketList);
   return (
     <section>
       <table className="table-fixed w-full font-medium">

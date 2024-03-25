@@ -19,9 +19,7 @@ const Header = () => {
       setShowMenu(false);
     }
   };
-  console.log("header");
-  console.log(contextValue.basketList);
-
+  console.log(contextValue?.basketList);
   return (
     <header className="h-14 p-4 md:px-16 lg:h-[8vh] sticky top-0 z-50 py-4 pb-12 text-gray-500 bg-white">
       <div className="flex justify-between items-center">
@@ -87,7 +85,7 @@ const Header = () => {
                 alt="logo"
                 quality={100}
               />
-              {contextValue.basketList.length !== 0 && (
+              {contextValue?.basketList?.length !== 0 && (
                 <span className="absolute top-[-5px] right-[-5px]">
                   <span className="relative flex h-3 w-3">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orangeColor opacity-75"></span>

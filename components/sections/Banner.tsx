@@ -1,13 +1,9 @@
 "use client";
 
-import React, { useContext } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { CommandeContext } from "@/context/CommandeProvider";
 
 const Banner = () => {
-  const contextValue = useContext(CommandeContext);
-  // console.log("banner");
-  // console.log(contextValue.basketList);
   return (
     <section className="bg-header-img xl:place-content-center xl:h-[650px] bg-cover rounded-2xl bg-no-repeat text-white space-y-6 xl:space-y-10 xl:pt-20 p-4 md:pl-16">
       <motion.h1
