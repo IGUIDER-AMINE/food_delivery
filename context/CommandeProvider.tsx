@@ -13,6 +13,7 @@ interface CommandeContextValue {
   setActDeleteCondidat: (action: number) => void;
   basketList: any;
   setBasketList: (action: any[]) => void;
+  filter: (_id: any, opt: string) => any[];
 }
 
 export const CommandeContext = createContext<CommandeContextValue>({
@@ -22,6 +23,7 @@ export const CommandeContext = createContext<CommandeContextValue>({
   setActDeleteCondidat: () => {},
   basketList: [],
   setBasketList: () => {},
+  filter: () => [],
 });
 
 export const CommandeContextProvider = ({
@@ -31,6 +33,13 @@ export const CommandeContextProvider = ({
   const [actDeleteCondidat, setActDeleteCondidat] = useState<any>([]);
   const [basketList, setBasketList] = useState<any[]>([]);
   const [mounted, setMounted] = useState(false);
+
+  const filter = (_id: any, opt: string) => {
+    if (opt === "notIn")
+      return contextValue?.basketList?.filter((dish: any) => dish._id !== _id);
+    else
+      return contextValue?.basketList?.filter((dish: any) => dish._id === _id);
+  };
 
   useEffect(() => {
     const data = localStorage.getItem("basketList");
@@ -63,6 +72,7 @@ export const CommandeContextProvider = ({
     setActDeleteCondidat,
     basketList,
     setBasketList,
+    filter,
   };
 
   return (

@@ -28,7 +28,7 @@ const Proceed = ({ link_to, title }: typeProps) => {
       </div>
       <div className="font-semibold  py-2 flex gap-x-4 justify-between">
         <span>Total</span>
-        <span>${total + 5}</span>
+        <span>${total !== 0 ? total + 5 : 0}</span>
       </div>
       <Link href={link_to}>
         <button className="bg-orangeColor mt-2 font-titleFont rounded-md text-white py-2 px-6">

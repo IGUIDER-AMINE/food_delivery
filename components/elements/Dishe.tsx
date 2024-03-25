@@ -25,18 +25,21 @@ interface propsType {
 }
 
 const Dishe = ({ item }: propsType) => {
-  const [addDish, setaddDish] = useState(0);
   const contextValue = useContext(CommandeContext);
-
   const { _id, name, image, price, description } = item;
+  const [mounted, setMounted] = useState(false);
+
+  const [addDish, setaddDish] = useState(0);
 
   const handleAddDish = (quantity: number) => {
-    const itemInList = contextValue?.basketList?.filter(
-      (dish: typeDishe) => dish._id !== _id
-    );
-    const itemSelected = contextValue?.basketList?.filter(
-      (dish: typeDishe) => dish._id === _id
-    );
+    // const itemInList = contextValue?.basketList?.filter(
+    //   (dish: typeDishe) => dish._id !== _id
+    // );
+    const itemInList = contextValue.filter(_id, "notIn");
+    const itemSelected = contextValue.filter(_id, "In");
+    // const itemSelected = contextValue?.basketList?.filter(
+    //   (dish: typeDishe) => dish._id === _id
+    // );
 
     if (quantity === 1 && itemSelected.length === 0) {
       contextValue.setBasketList([
@@ -54,8 +57,13 @@ const Dishe = ({ item }: propsType) => {
   };
 
   useEffect(() => {
-    handleAddDish(addDish);
+    if (mounted) handleAddDish(addDish);
+    else setMounted(true);
   }, [addDish]);
+
+  useEffect(() => {
+    setaddDish(contextValue.filter(_id, "In").length);
+  }, [mounted]);
 
   return (
     <div className="gap-y-2 cursor-pointer shadow-md rounded-2xl">
@@ -65,7 +73,6 @@ const Dishe = ({ item }: propsType) => {
           src={image}
           alt={name}
         />
-        {/* {contextValue.actAppendCondidat} */}
         {addDish !== 0 ? (
           <div className="flex gap-4 items-center absolute bottom-3 bg-white py-1 px-2 rounded-full right-3">
             <Image
