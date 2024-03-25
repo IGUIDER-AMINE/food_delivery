@@ -24,9 +24,11 @@ export default function RootLayout({
         className="w-full min-h-screen font-bodyFont flex flex-col
         justify-between overflow-x-hidden overflow-y-scroll scrollbar scrollbar-thumb-orangeColor/60 gap-10 container mx-auto"
       >
-        <Header />
-        <CommandeContextProvider>{children}</CommandeContextProvider>
-        <Footer />
+        <CommandeContextProvider>
+          <Header />
+          {children}
+          <Footer />
+        </CommandeContextProvider>
       </body>
     </html>
   );

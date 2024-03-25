@@ -4,12 +4,14 @@ import { assets } from "@/public/asstes";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { MdOutlineClose } from "react-icons/md";
+import { CommandeContext } from "@/context/CommandeProvider";
 
 const Header = () => {
   const ref = useRef<string | any>("");
   const [showMenu, setShowMenu] = useState(false);
+  const contextValue = useContext(CommandeContext);
 
   const handlClick = (e: any) => {
     if (e.target.contains(ref.current)) {
@@ -17,6 +19,8 @@ const Header = () => {
       setShowMenu(false);
     }
   };
+  console.log("header");
+  console.log(contextValue.basketList);
 
   return (
     <header className="h-14 p-4 md:px-16 lg:h-[8vh] sticky top-0 z-50 py-4 pb-12 text-gray-500 bg-white">
@@ -76,13 +80,21 @@ const Header = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.1, delay: 0.5 }}
           >
-            <Link href="/cart">
+            <Link href="/cart" className="relative">
               <Image
                 className="cursor-pointer"
                 src={assets.basket_icon}
                 alt="logo"
                 quality={100}
               />
+              {contextValue.basketList.length !== 0 && (
+                <span className="absolute top-[-5px] right-[-5px]">
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orangeColor opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-orangeColor"></span>
+                  </span>
+                </span>
+              )}
             </Link>
           </motion.div>
           <motion.div

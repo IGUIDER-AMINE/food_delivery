@@ -3,7 +3,13 @@
 import { CommandeContext } from "@/context/CommandeProvider";
 import { assets } from "@/public/asstes";
 import Image, { StaticImageData } from "next/image";
-import React, { useContext, useState } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 interface typeDishe {
   _id: string;
@@ -22,13 +28,32 @@ const Dishe = ({ item }: propsType) => {
   const [addDish, setaddDish] = useState(0);
   const contextValue = useContext(CommandeContext);
 
-  const { name, image, price, description } = item;
-  console.log(name);
+  const { _id, name, image, price, description } = item;
 
-  const handleAddDish = () => {
-    setaddDish(addDish + 1);
-    contextValue.setBasketList([...contextValue.basketList, {}]);
+  const handleAddDish = (quantity: number) => {
+    const itemInList = contextValue.basketList.filter(
+      (dish: typeDishe) => dish._id !== _id
+    );
+    const itemSelected = contextValue.basketList.filter(
+      (dish: typeDishe) => dish._id === _id
+    );
+
+    if (quantity === 1 && itemSelected.length === 0) {
+      contextValue.setBasketList([
+        ...contextValue.basketList,
+        { ...item, quantity },
+      ]);
+    } else if (quantity === 0) {
+      contextValue.setBasketList([...itemInList]);
+    } else {
+      contextValue.setBasketList([...itemInList, { ...item, quantity }]);
+    }
   };
+
+  useEffect(() => {
+    handleAddDish(addDish);
+  }, [addDish]);
+
   return (
     <div className="gap-y-2 cursor-pointer shadow-md rounded-2xl">
       <div className="relative">
@@ -36,7 +61,6 @@ const Dishe = ({ item }: propsType) => {
           className="object-cover rounded-t-2xl w-full min-w-[104px] h-[204px]"
           src={image}
           alt={name}
-          quality={100}
         />
         {/* {contextValue.actAppendCondidat} */}
         {addDish !== 0 ? (
@@ -45,7 +69,6 @@ const Dishe = ({ item }: propsType) => {
               className="object-cover rounded-t-2xl max-w-10"
               src={assets.remove_icon_red}
               alt={name}
-              quality={100}
               onClick={() => setaddDish((prev) => prev - 1)}
             />
             <span className="font-medium font-titleFont">{addDish}</span>
@@ -53,7 +76,6 @@ const Dishe = ({ item }: propsType) => {
               className="object-cover rounded-t-2xl max-w-10"
               src={assets.add_icon_green}
               alt={name}
-              quality={100}
               onClick={() => setaddDish((prev) => prev + 1)}
             />
           </div>
@@ -66,7 +88,6 @@ const Dishe = ({ item }: propsType) => {
               className="object-cover rounded-t-2xl w-10"
               src={assets.add_icon_white}
               alt={name}
-              quality={100}
             />
           </button>
         )}
@@ -78,7 +99,6 @@ const Dishe = ({ item }: propsType) => {
             className="object-contain"
             src={assets.rating_starts}
             alt="rating_starts"
-            quality={100}
           />
         </div>
         <p className="text-sm">{description}</p>

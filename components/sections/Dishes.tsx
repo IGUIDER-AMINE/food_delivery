@@ -1,5 +1,4 @@
-import { assets, food_list } from "@/public/asstes";
-import Image from "next/image";
+import { food_list } from "@/public/asstes";
 import React from "react";
 import Dishe from "../elements/Dishe";
 
