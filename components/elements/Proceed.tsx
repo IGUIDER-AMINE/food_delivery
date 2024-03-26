@@ -1,7 +1,7 @@
 "use client";
 
 import { CommandeContext } from "@/context/CommandeProvider";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useContext } from "react";
 
 interface typeProps {
@@ -10,11 +10,25 @@ interface typeProps {
 }
 
 const Proceed = ({ link_to, title }: typeProps) => {
+  const router = useRouter();
   const contextValue = useContext(CommandeContext);
   let total = 0;
-  for (const item of contextValue.basketList) {
+  for (const item of contextValue?.basketList?.list) {
     total += item.total;
   }
+
+  const handleInfos = (link_to: string) => {
+    const infos = contextValue?.basketList?.infos;
+    if (
+      link_to === "/payment" &&
+      (infos?.firstName === "" || infos?.lastName === "" || infos?.email === "")
+    )
+      alert("error");
+    else {
+      router.push(link_to);
+    }
+  };
+
   return (
     <div className="md:min-w-[500px] space-y-4">
       <h1 className="font-titleFont font-bold text-3xl">Cart Totals</h1>
@@ -30,11 +44,12 @@ const Proceed = ({ link_to, title }: typeProps) => {
         <span>Total</span>
         <span>${total !== 0 ? total + 5 : 0}</span>
       </div>
-      <Link href={link_to}>
-        <button className="bg-orangeColor mt-2 font-titleFont rounded-md text-white py-2 px-6">
-          {title}
-        </button>
-      </Link>
+      <button
+        onClick={() => handleInfos(link_to)}
+        className="bg-orangeColor mt-2 font-titleFont rounded-md text-white py-2 px-6"
+      >
+        {title}
+      </button>
     </div>
   );
 };

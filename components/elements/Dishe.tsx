@@ -2,23 +2,9 @@
 
 import { CommandeContext } from "@/context/CommandeProvider";
 import { assets } from "@/public/asstes";
-import Image, { StaticImageData } from "next/image";
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
-
-interface typeDishe {
-  _id: string;
-  name: string;
-  image: StaticImageData;
-  price: number;
-  description: string;
-  category: string;
-}
+import { typeDishe } from "@/types";
+import Image from "next/image";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 
 interface propsType {
   item: typeDishe;
@@ -32,27 +18,33 @@ const Dishe = ({ item }: propsType) => {
   const [addDish, setaddDish] = useState(0);
 
   const handleAddDish = (quantity: number) => {
-    // const itemInList = contextValue?.basketList?.filter(
+    // const itemInList = contextValue?.basketList?.list.filter(
     //   (dish: typeDishe) => dish._id !== _id
     // );
     const itemInList = contextValue.filter(_id, "notIn");
     const itemSelected = contextValue.filter(_id, "In");
-    // const itemSelected = contextValue?.basketList?.filter(
+    // const itemSelected = contextValue?.basketList?.list.filter(
     //   (dish: typeDishe) => dish._id === _id
     // );
 
     if (quantity === 1 && itemSelected.length === 0) {
-      contextValue.setBasketList([
-        ...contextValue.basketList,
-        { ...item, quantity, total: quantity * price },
-      ]);
+      contextValue.setBasketList({
+        ...contextValue.basketList.infos,
+        list: [
+          ...contextValue?.basketList?.list,
+          { ...item, quantity, total: quantity * price },
+        ],
+      });
     } else if (quantity === 0) {
-      contextValue?.setBasketList([...itemInList]);
+      contextValue?.setBasketList({
+        ...contextValue.basketList.infos,
+        list: [...itemInList],
+      });
     } else {
-      contextValue?.setBasketList([
-        ...itemInList,
-        { ...item, quantity, total: quantity * price },
-      ]);
+      contextValue?.setBasketList({
+        ...contextValue.basketList.infos,
+        list: [...itemInList, { ...item, quantity, total: quantity * price }],
+      });
     }
   };
 
@@ -62,11 +54,16 @@ const Dishe = ({ item }: propsType) => {
   }, [addDish]);
 
   useEffect(() => {
-    setaddDish(contextValue.filter(_id, "In").length);
+    if (contextValue.filter(_id, "In")?.length !== 0) {
+      setaddDish(contextValue.filter(_id, "In")[0]?.quantity);
+    }
   }, [mounted]);
+
+  // console.log(contextValue.basketList);
 
   return (
     <div className="gap-y-2 cursor-pointer shadow-md rounded-2xl">
+      {_id}
       <div className="relative">
         <Image
           className="object-cover rounded-t-2xl w-full min-w-[104px] h-[204px]"

@@ -12,8 +12,21 @@ interface CommandeContextValue {
   actDeleteCondidat: number;
   setActDeleteCondidat: (action: number) => void;
   basketList: any;
-  setBasketList: (action: any[]) => void;
-  filter: (_id: any, opt: string) => any[];
+  setBasketList: (action: {
+    infos: {
+      firstName?: string;
+      lastName?: string;
+      email?: string;
+      street?: string;
+      city?: string;
+      state?: string;
+      zipcode?: string;
+      country?: string;
+      phone?: string;
+    };
+    list: any[];
+  }) => void;
+  filter: (_id: number, opt: string) => any[];
 }
 
 export const CommandeContext = createContext<CommandeContextValue>({
@@ -21,7 +34,7 @@ export const CommandeContext = createContext<CommandeContextValue>({
   setActAppendCondidat: () => {},
   actDeleteCondidat: 0,
   setActDeleteCondidat: () => {},
-  basketList: [],
+  basketList: {},
   setBasketList: () => {},
   filter: () => [],
 });
@@ -31,14 +44,31 @@ export const CommandeContextProvider = ({
 }: CommandeProviderContextProps) => {
   const [actAppendCondidat, setActAppendCondidat] = useState<number>(0);
   const [actDeleteCondidat, setActDeleteCondidat] = useState<any>([]);
-  const [basketList, setBasketList] = useState<any[]>([]);
+  const [basketList, setBasketList] = useState<{ infos: {}; list: any[] }>({
+    infos: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      street: "",
+      city: "",
+      state: "",
+      zipcode: "",
+      country: "",
+      phone: "",
+    },
+    list: [],
+  });
   const [mounted, setMounted] = useState(false);
 
-  const filter = (_id: any, opt: string) => {
+  const filter = (_id: number, opt: string) => {
     if (opt === "notIn")
-      return contextValue?.basketList?.filter((dish: any) => dish._id !== _id);
+      return contextValue?.basketList?.list?.filter(
+        (dish: any) => dish._id !== _id
+      );
     else
-      return contextValue?.basketList?.filter((dish: any) => dish._id === _id);
+      return contextValue?.basketList?.list?.filter(
+        (dish: any) => dish._id === _id
+      );
   };
 
   useEffect(() => {
@@ -49,7 +79,7 @@ export const CommandeContextProvider = ({
         setBasketList(parsedData);
       }
     } else {
-      localStorage.setItem("basketList", JSON.stringify([]));
+      localStorage.setItem("basketList", JSON.stringify(basketList));
     }
     // console.log("data");
     // console.log(data);

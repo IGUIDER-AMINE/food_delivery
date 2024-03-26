@@ -9,10 +9,14 @@ import Order from "../elements/Order";
 const ListOrders = () => {
   const contextValue = useContext(CommandeContext);
   const removeOrder = (_id: any) => {
-    const itemInList = contextValue?.basketList?.filter(
+    const itemInList = contextValue?.basketList?.list.filter(
       (dish: any) => dish._id !== _id
     );
-    contextValue.setBasketList(itemInList);
+
+    contextValue.setBasketList({
+      ...contextValue.basketList.infos,
+      list: [...itemInList],
+    });
   };
   // console.log(contextValue.basketList.length);
   return (
@@ -32,7 +36,7 @@ const ListOrders = () => {
           </tr>
         </thead>
         <tbody>
-          {contextValue?.basketList.map((item: any, index: number) => {
+          {contextValue?.basketList?.list?.map((item: any, index: number) => {
             return (
               <Order
                 key={index}

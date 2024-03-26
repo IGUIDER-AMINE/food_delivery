@@ -85,7 +85,7 @@ const Header = () => {
                 alt="logo"
                 quality={100}
               />
-              {contextValue?.basketList?.length !== 0 && (
+              {contextValue?.basketList?.list?.length !== 0 && (
                 <span className="absolute top-[-5px] right-[-5px]">
                   <span className="relative flex h-3 w-3">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orangeColor opacity-75"></span>
