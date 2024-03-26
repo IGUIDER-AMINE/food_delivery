@@ -68,8 +68,6 @@ const Dishe = ({ item }: propsType) => {
           className="object-cover rounded-t-2xl w-full min-w-[104px] h-[204px]"
           src={image}
           alt={name}
-          width={200}
-          height={200}
         />
         {addDish !== 0 ? (
           <div className="flex gap-4 items-center absolute bottom-3 bg-white py-1 px-2 rounded-full right-3">
