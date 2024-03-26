@@ -60,7 +60,7 @@ export const CommandeContextProvider = ({
   });
   const [mounted, setMounted] = useState(false);
 
-  const filter = (_id: number | string, opt: string) => {
+  const filter = (_id: number, opt: string) => {
     if (opt === "notIn")
       return contextValue?.basketList?.list?.filter(
         (dish: any) => dish._id !== _id

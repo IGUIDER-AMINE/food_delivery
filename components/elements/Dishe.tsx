@@ -21,8 +21,8 @@ const Dishe = ({ item }: propsType) => {
     // const itemInList = contextValue?.basketList?.list.filter(
     //   (dish: typeDishe) => dish._id !== _id
     // );
-    const itemInList = contextValue.filter(_id, "notIn");
-    const itemSelected = contextValue.filter(_id, "In");
+    const itemInList = contextValue.filter(parseInt(_id), "notIn");
+    const itemSelected = contextValue.filter(parseInt(_id), "In");
     // const itemSelected = contextValue?.basketList?.list.filter(
     //   (dish: typeDishe) => dish._id === _id
     // );
