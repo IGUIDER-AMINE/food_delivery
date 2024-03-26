@@ -5,12 +5,15 @@ import React, { useContext, useEffect, useState } from "react";
 const Delivery = () => {
   const contextValue = useContext(CommandeContext);
   const [infos, setinfos] = useState(contextValue?.basketList?.infos);
+  const [mounted, setmounted] = useState(false);
 
   useEffect(() => {
-    contextValue.setBasketList({
-      infos: infos,
-      list: [...contextValue?.basketList.list],
-    });
+    if (mounted)
+      contextValue.setBasketList({
+        infos: infos,
+        list: [...contextValue?.basketList.list],
+      });
+    else setmounted(true);
   }, [infos]);
 
   return (

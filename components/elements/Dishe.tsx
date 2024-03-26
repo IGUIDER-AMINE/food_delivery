@@ -63,7 +63,6 @@ const Dishe = ({ item }: propsType) => {
 
   return (
     <div className="gap-y-2 cursor-pointer shadow-md rounded-2xl">
-      {_id}
       <div className="relative">
         <Image
           className="object-cover rounded-t-2xl w-full min-w-[104px] h-[204px]"
