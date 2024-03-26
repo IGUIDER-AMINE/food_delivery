@@ -54,8 +54,8 @@ const Dishe = ({ item }: propsType) => {
   }, [addDish]);
 
   useEffect(() => {
-    if (contextValue.filter(_id, "In")?.length !== 0) {
-      setaddDish(contextValue.filter(_id, "In")[0]?.quantity);
+    if (contextValue.filter(parseInt(_id), "In")?.length !== 0) {
+      setaddDish(contextValue.filter(parseInt(_id), "In")[0]?.quantity);
     }
   }, [mounted]);
 
