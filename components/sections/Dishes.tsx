@@ -9,7 +9,7 @@ const Dishes = () => {
   const [data, setData] = useState<typeDishe[]>([]);
   useEffect(() => {
     axios
-      .get("/api/example-api")
+      .get("/api/")
       .then((response) => {
         setData(response.data);
       })
