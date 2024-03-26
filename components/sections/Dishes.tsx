@@ -17,14 +17,24 @@ const Dishes = () => {
   //       console.error("Error fetching data:", error);
   //     });
   // }, []);
-
+  // https://student-app-express.onrender.com/food/Noodles
+  useEffect(() => {
+    axios
+      .get("https://student-app-express.onrender.com/food/Noodles")
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
   return (
     <section className="space-y-6">
       <h1 className="font-titleFont font-bold text-4xl">Top Dishes near you</h1>
       <div className="grid grid-flow-row md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 pb-4 ">
-        {/* {data.slice(1, 10).map((item, index) => {
+        {data.slice(1, 10).map((item, index) => {
           return <Dishe key={index} item={item} />;
-        })} */}
+        })}
       </div>
     </section>
   );
