@@ -1,5 +1,5 @@
 export interface typeDishe {
-  _id: number | number;
+  _id: number;
   name: string;
   image: StaticImageData;
   price: number;
